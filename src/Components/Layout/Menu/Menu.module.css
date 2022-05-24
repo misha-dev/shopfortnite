@@ -1,0 +1,32 @@
+.menu {
+  padding: 10px;
+  background-color: #2a2a2a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menu__item {
+}
+
+.menu__item img {
+  width: 243px;
+  height: 46px;
+}
+
+.cart {
+  height: 40px;
+  width: 40px;
+  background-color: #fad518;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.icon {
+  color: #2a2a2a;
+  transform: skew(0deg, 0deg);
+}
