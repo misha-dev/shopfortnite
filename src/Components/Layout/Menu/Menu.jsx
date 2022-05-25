@@ -6,7 +6,7 @@ export const Menu = () => {
   return (
     <div className={cl.menu}>
       <div className={cl.menu__item}>
-        <Link to={"/shop"}>
+        <Link to={"/shopfortnite"}>
           <img
             src="https://fortniteskins.net/wp-content/themes/fskins/assets/img/img-logo.png"
             alt=""
