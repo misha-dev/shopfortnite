@@ -8,6 +8,7 @@
   align-items: center;
   transition: box-shadow 0.3s linear;
   background-color: #e6e6e6;
+  text-align: center;
 }
 
 .itemBody:hover {
