@@ -14,9 +14,10 @@ export const CartContextProvider = ({ children }) => {
     };
     switch (action.type) {
       case "ADD":
+        state[-1].totalCount += 1;
         const index = findItem(action.data.mainId);
         if (index === -1) {
-          return [...state, { ...action.data }];
+          return [{ ...action.data }, ...state];
         } else {
           state[index].count++;
           return [...state];
