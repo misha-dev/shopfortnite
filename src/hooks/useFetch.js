@@ -14,8 +14,7 @@ export const useFetch = () => {
           },
         });
         const data = await response.json();
-        console.log(data);
-        setData(data);
+        setData(data.shop);
       } catch (error) {
         setError(error.message);
       } finally {
