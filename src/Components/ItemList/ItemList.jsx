@@ -5,7 +5,6 @@ import cl from "./ItemList.module.css";
 
 export const ItemList = () => {
   const { data, error, isLoading } = useFetch();
-  console.log(data);
 
   return (
     <>

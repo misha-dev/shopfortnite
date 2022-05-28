@@ -5,8 +5,8 @@ export const CartContext = createContext(null);
 export const CartContextProvider = ({ children }) => {
   const cartReducer = (state, action) => {
     const findItem = (id) => {
-      for (let index = 0; index < state.length; index++) {
-        if (state[index].mainId === id) {
+      for (let index = 0; index < state.cart.length; index++) {
+        if (state.cart[index].mainId === id) {
           return index;
         }
       }
@@ -14,10 +14,12 @@ export const CartContextProvider = ({ children }) => {
     };
     switch (action.type) {
       case "ADD":
-        state[-1].totalCount += 1;
         const index = findItem(action.data.mainId);
         if (index === -1) {
-          return [{ ...action.data }, ...state];
+          return {
+            shop: [action.data, ...state.shop],
+            itemCount: state.itemCount + 1,
+          };
         } else {
           state[index].count++;
           return [...state];
@@ -27,10 +29,10 @@ export const CartContextProvider = ({ children }) => {
         return state;
     }
   };
-  const [state, dispatch] = useReducer(cartReducer, [{ totalCount: 0 }]);
+  const [state, dispatch] = useReducer(cartReducer, { cart: [], itemCount: 0 });
 
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
+    <CartContext.Provider value={{ ...state, dispatch }}>
       {children}
     </CartContext.Provider>
   );
