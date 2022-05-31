@@ -4,7 +4,12 @@ import cl from "./AddRemove.module.css";
 export const AddRemove = ({ itemCount, dispatch, data }) => {
   return (
     <div className={cl.wrapper}>
-      <AiOutlineMinusCircle className={cl.changeCount} />
+      <AiOutlineMinusCircle
+        className={cl.changeCount}
+        onClick={() => {
+          dispatch({ data, type: "DELETE" });
+        }}
+      />
       <div className={cl.count}>{itemCount}</div>
       <AiOutlinePlusCircle
         className={cl.changeCount}

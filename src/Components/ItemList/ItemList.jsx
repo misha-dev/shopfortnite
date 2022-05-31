@@ -8,6 +8,7 @@ export const ItemList = () => {
 
   return (
     <>
+      {error && <p>{error}</p>}
       {isLoading ? (
         <Loader />
       ) : (

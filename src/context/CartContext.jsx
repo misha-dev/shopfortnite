@@ -12,15 +12,15 @@ export const CartContextProvider = ({ children }) => {
       }
       return -1;
     };
+    const index = findItem(action.data.mainId);
     switch (action.type) {
       case "ADD":
-        const index = findItem(action.data.mainId);
         if (index === -1) {
           action.data.count = 1;
           return {
             cart: [action.data, ...state.cart],
             totalCount: state.totalCount + 1,
-            totalPrice: state.totalPrice + action.data.price.regularPrice,
+            totalPrice: state.totalPrice + action.data.price,
           };
         } else {
           state.cart[index].count += 1;
@@ -28,9 +28,24 @@ export const CartContextProvider = ({ children }) => {
           return {
             ...state,
             totalCount: state.totalCount + 1,
-            totalPrice: state.totalPrice + action.data.price.regularPrice,
+            totalPrice: state.totalPrice + action.data.price,
           };
         }
+
+      case "DELETE":
+        if (state.cart[index].count === 1) {
+          state.cart = state.cart.filter((item) => {
+            return item.mainId !== action.data.mainId;
+          });
+        } else {
+          state.cart[index].count -= 1;
+        }
+
+        return {
+          ...state,
+          totalCount: state.totalCount - 1,
+          totalPrice: state.totalPrice - action.data.price,
+        };
 
       default:
         return state;

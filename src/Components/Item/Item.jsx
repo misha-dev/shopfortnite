@@ -4,7 +4,7 @@ import { AddRemove } from "../AddRemove/AddRemove";
 import cl from "./Item.module.css";
 
 export const Item = ({ displayName, price, mainId, img }) => {
-  const { cart, totalCount, dispatch } = useCartContext();
+  const { cart, dispatch } = useCartContext();
   function countOfItem(mainId) {
     for (let index = 0; index < cart.length; index++) {
       const item = cart[index];
@@ -15,6 +15,8 @@ export const Item = ({ displayName, price, mainId, img }) => {
 
     return -1;
   }
+
+
 
   const itemCount = countOfItem(mainId);
   const data = { displayName, price, mainId, img };
