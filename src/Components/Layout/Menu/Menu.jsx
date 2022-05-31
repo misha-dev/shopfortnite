@@ -4,7 +4,7 @@ import { useCartContext } from "../../../hooks/useCartContext";
 import cl from "./Menu.module.css";
 
 export const Menu = () => {
-  const { cart, itemCount, dispatch } = useCartContext();
+  const { cart, totalCount, dispatch } = useCartContext();
   return (
     <div className={cl.menu}>
       <div className={cl.menu__item}>
@@ -16,7 +16,7 @@ export const Menu = () => {
         </Link>
       </div>
       <div className={`${cl.menu__item} ${cl.cart}`}>
-        <div className={cl.menu__count}>{itemCount}</div>
+        <div className={cl.menu__count}>{totalCount}</div>
         <RiShoppingCart2Fill className={cl.icon} />
       </div>
     </div>

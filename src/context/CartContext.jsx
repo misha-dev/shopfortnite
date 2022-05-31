@@ -16,20 +16,31 @@ export const CartContextProvider = ({ children }) => {
       case "ADD":
         const index = findItem(action.data.mainId);
         if (index === -1) {
+          action.data.count = 1;
           return {
-            shop: [action.data, ...state.shop],
-            itemCount: state.itemCount + 1,
+            cart: [action.data, ...state.cart],
+            totalCount: state.totalCount + 1,
+            totalPrice: state.totalPrice + action.data.price.regularPrice,
           };
         } else {
-          state[index].count++;
-          return [...state];
+          state.cart[index].count += 1;
+
+          return {
+            ...state,
+            totalCount: state.totalCount + 1,
+            totalPrice: state.totalPrice + action.data.price.regularPrice,
+          };
         }
 
       default:
         return state;
     }
   };
-  const [state, dispatch] = useReducer(cartReducer, { cart: [], itemCount: 0 });
+  const [state, dispatch] = useReducer(cartReducer, {
+    cart: [],
+    totalCount: 0,
+    totalPrice: 0,
+  });
 
   return (
     <CartContext.Provider value={{ ...state, dispatch }}>
