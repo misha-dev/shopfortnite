@@ -47,6 +47,16 @@ export const CartContextProvider = ({ children }) => {
           totalPrice: state.totalPrice - action.data.price,
         };
 
+      case "DELETE":
+        state.cart = state.cart.filter((item) => {
+          return item.mainId !== action.data.mainId;
+        });
+        return {
+          ...state,
+          totalCount: state.totalCount - action.data.count,
+          totalPrice: state.totalPrice - action.data.price * action.data.count,
+        };
+
       default:
         return state;
     }

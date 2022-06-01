@@ -11,6 +11,7 @@
   background-color: rgba(32, 32, 32, 0.7);
   font-size: 1.1rem;
   position: absolute;
+  cursor: default;
 }
 .header {
   border-bottom: 0.3px solid #d99a35;

@@ -12,7 +12,7 @@
 
 .cartItem:not(.cartItem:last-child) {
   margin-bottom: 5px;
-  border-bottom: 0.2px solid #1C1C1C;
+  border-bottom: 0.2px solid #1c1c1c;
 }
 
 .name {
@@ -20,6 +20,7 @@
 }
 
 .price {
+  width: 63px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,4 +29,14 @@
 .cartItem .cartImg {
   width: 30px;
   height: 30px;
+}
+
+.cross {
+  color: rgba(250, 213, 24, 0.8);
+  cursor: pointer;
+  transition: color 0.2s linear;
+}
+
+.cross:hover {
+  color: rgba(205, 168, 0, 0.7);
 }
