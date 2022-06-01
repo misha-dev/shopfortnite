@@ -55,3 +55,16 @@
   border-radius: 4px;
   background-color: #d99a35;
 }
+.thanks {
+  display: none;
+  color: #2a2a2a;
+  padding: 3px;
+  border-radius: 0 0 15px 15px;
+  background-color: #d99a35;
+  justify-content: center;
+  align-items: center;
+}
+
+.activeThanks {
+  display: flex;
+}

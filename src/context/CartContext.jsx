@@ -57,6 +57,13 @@ export const CartContextProvider = ({ children }) => {
           totalPrice: state.totalPrice - action.data.price * action.data.count,
         };
 
+      case "CLEAR":
+        return {
+          cart: [],
+          totalCount: 0,
+          totalPrice: 0,
+        };
+
       default:
         return state;
     }
