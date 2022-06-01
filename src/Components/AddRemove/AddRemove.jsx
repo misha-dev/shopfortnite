@@ -7,7 +7,7 @@ export const AddRemove = ({ itemCount, dispatch, data }) => {
       <AiOutlineMinusCircle
         className={cl.changeCount}
         onClick={() => {
-          dispatch({ data, type: "DELETE" });
+          dispatch({ data, type: "DECREASE" });
         }}
       />
       <div className={cl.count}>{itemCount}</div>

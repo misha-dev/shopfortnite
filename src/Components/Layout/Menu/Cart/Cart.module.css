@@ -1,0 +1,56 @@
+.modal {
+  border-radius: 15px;
+  display: none;
+  top: 160%;
+  min-height: 60px;
+  width: 380px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  color: rgb(239, 239, 239);
+  background-color: rgba(32, 32, 32, 0.7);
+  font-size: 1.1rem;
+  position: absolute;
+}
+.header {
+  border-bottom: 0.3px solid #d99a35;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background-color: rgba(13, 13, 13, 0.8);
+  border-radius: 15px 15px 0 0;
+  color: #e6e6e6;
+}
+
+.active {
+  display: block;
+}
+
+.modalContent {
+  padding: 15px;
+  max-height: 260px;
+}
+
+.modalFooter {
+  padding: 6px;
+  display: flex;
+  background-color: rgba(13, 13, 13, 0.8);
+  border-radius: 0 0 15px 15px;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 0.3px solid #d99a35;
+}
+
+.totalPrice {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.modalButton {
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #d99a35;
+}

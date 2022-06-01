@@ -32,7 +32,7 @@ export const CartContextProvider = ({ children }) => {
           };
         }
 
-      case "DELETE":
+      case "DECREASE":
         if (state.cart[index].count === 1) {
           state.cart = state.cart.filter((item) => {
             return item.mainId !== action.data.mainId;

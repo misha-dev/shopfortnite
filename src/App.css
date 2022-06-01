@@ -73,3 +73,9 @@ img {
 * {
   font-family: "Maven Pro", sans-serif;
 }
+
+.coin {
+  color: #e79b21;
+  font-size: 1.1rem;
+  margin-left: 2px;
+}

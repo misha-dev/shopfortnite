@@ -1,0 +1,31 @@
+.cartItemWrapper {
+  display: flex;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+}
+
+.cartItem:not(.cartItem:last-child) {
+  margin-bottom: 5px;
+  border-bottom: 0.2px solid #1C1C1C;
+}
+
+.name {
+  width: 105px;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartItem .cartImg {
+  width: 30px;
+  height: 30px;
+}

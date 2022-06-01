@@ -31,14 +31,9 @@
   font-size: 1.1rem;
 }
 
-
 .itemBody button {
   font-size: 1rem;
   padding: 5px 15px;
   border-radius: 4px;
-  background-color: #D99A35;
-}
-
-.coin {
-  color: #e79b21;
+  background-color: #d99a35;
 }

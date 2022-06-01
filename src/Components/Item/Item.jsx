@@ -16,8 +16,6 @@ export const Item = ({ displayName, price, mainId, img }) => {
     return -1;
   }
 
-
-
   const itemCount = countOfItem(mainId);
   const data = { displayName, price, mainId, img };
 
@@ -29,7 +27,7 @@ export const Item = ({ displayName, price, mainId, img }) => {
       <img src={img} alt="" />
       <div className={cl.itemName}>{displayName}</div>
       <div className={cl.itemPrice}>
-        {price} <RiCopperCoinLine className={cl.coin}></RiCopperCoinLine>
+        {price} <RiCopperCoinLine className="coin"></RiCopperCoinLine>
       </div>
       <div style={{ height: "28px" }}>
         {itemCount !== -1 ? (
