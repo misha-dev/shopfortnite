@@ -79,3 +79,12 @@ img {
   font-size: 1.1rem;
   margin-left: 2px;
 }
+
+/* For cart scroll */
+.App
+  .os-theme-dark
+  .os-scrollbar-vertical
+  > .os-scrollbar-track
+  > .os-scrollbar-handle {
+  background-color: #060606;
+}

@@ -10,7 +10,7 @@ export const Cart = ({ children, isVisible }) => {
   const classesForModal = [cl.modal];
   const classesForThanks = [cl.thanks];
   const scrollableArea = useRef(null);
-  const hasScroll = cart.length > 4;
+  const hasScroll = cart.length > 5;
 
   useScroll(scrollableArea, hasScroll);
 
@@ -29,7 +29,12 @@ export const Cart = ({ children, isVisible }) => {
       className={classesForModal.join(" ")}
     >
       <div className={cl.header}>Cart</div>
-      <div ref={scrollableArea} className={cl.modalContent}>
+      <div
+        ref={scrollableArea}
+        // Changeable for mobile devices
+        style={{ maxHeight: "240px" }}
+        className={cl.modalContent}
+      >
         {children}
       </div>
       <div className={cl.modalFooter}>
