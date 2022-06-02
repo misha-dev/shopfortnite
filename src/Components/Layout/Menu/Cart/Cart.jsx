@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { RiCopperCoinLine } from "react-icons/ri";
 import { useCartContext } from "../../../../hooks/useCartContext";
+import { useScroll } from "../../../../hooks/useScroll";
 import cl from "./Cart.module.css";
 
 export const Cart = ({ children, isVisible }) => {
-  const { totalPrice, dispatch } = useCartContext();
+  const { totalPrice, dispatch, cart } = useCartContext();
   const [isThanked, setIsThanked] = useState(false);
   const classesForModal = [cl.modal];
   const classesForThanks = [cl.thanks];
+  const scrollableArea = useRef(null);
+  const hasScroll = cart.length > 4;
+
+  useScroll(scrollableArea, hasScroll);
 
   if (isVisible) {
     classesForModal.push(cl.active);
@@ -24,7 +29,9 @@ export const Cart = ({ children, isVisible }) => {
       className={classesForModal.join(" ")}
     >
       <div className={cl.header}>Cart</div>
-      <div className={cl.modalContent}>{children}</div>
+      <div ref={scrollableArea} className={cl.modalContent}>
+        {children}
+      </div>
       <div className={cl.modalFooter}>
         <div className={cl.totalPrice}>
           Total Price: {totalPrice}
