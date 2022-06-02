@@ -6,12 +6,19 @@
   width: 380px;
   left: 50%;
   transform: translateX(-50%);
-  position: absolute;
   color: rgb(239, 239, 239);
   background-color: rgba(32, 32, 32, 0.7);
   font-size: 1.1rem;
   position: absolute;
   cursor: default;
+}
+
+@media (max-width: 1000px) {
+  .modal {
+    font-size: 0.9rem;
+    width: 300px;
+    transform: translateX(-85%);
+  }
 }
 .header {
   border-bottom: 0.3px solid #d99a35;
@@ -31,7 +38,7 @@
 
 .modalContent {
   padding: 15px;
-  max-height: 240px;
+  /* max-height: 240px; */
 }
 
 .modalFooter {

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { RiCopperCoinLine } from "react-icons/ri";
 import { useCartContext } from "../../../../hooks/useCartContext";
+import { useMatchMedia } from "../../../../hooks/useMatchMedia";
 import { useScroll } from "../../../../hooks/useScroll";
 import cl from "./Cart.module.css";
 
@@ -10,7 +11,8 @@ export const Cart = ({ children, isVisible }) => {
   const classesForModal = [cl.modal];
   const classesForThanks = [cl.thanks];
   const scrollableArea = useRef(null);
-  const hasScroll = cart.length > 5;
+  const { isMobile } = useMatchMedia();
+  const hasScroll = isMobile ? cart.length > 6 : cart.length > 5;
 
   useScroll(scrollableArea, hasScroll);
 
@@ -32,7 +34,7 @@ export const Cart = ({ children, isVisible }) => {
       <div
         ref={scrollableArea}
         // Changeable for mobile devices
-        style={{ maxHeight: "240px" }}
+        style={{ maxHeight: isMobile ? "287px" : "240px" }}
         className={cl.modalContent}
       >
         {children}
