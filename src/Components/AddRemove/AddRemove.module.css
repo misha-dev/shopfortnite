@@ -21,6 +21,9 @@
 }
 
 @media (max-width: 1000px) {
+  .wrapper {
+    margin-right: 8px;
+  }
   .changeCount {
     font-size: 1.3rem;
   }
