@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 export const CartContext = createContext(null);
 
@@ -14,22 +14,41 @@ export const CartContextProvider = ({ children }) => {
     };
     const index = findItem(action.data.mainId);
     switch (action.type) {
+      case "GETCONTEXT":
+        const localState = localStorage.getItem("context");
+        if (localState) {
+          const localStateParsed = JSON.parse(localState);
+          localStateParsed.context = true;
+          return { ...localStateParsed };
+        }
+        state.context = true;
+        localStorage.setItem("context", JSON.stringify(state));
+        console.log(state);
+        return { ...state };
+
       case "ADD":
         if (index === -1) {
           action.data.count = 1;
-          return {
+          const newState = {
             cart: [action.data, ...state.cart],
             totalCount: state.totalCount + 1,
             totalPrice: state.totalPrice + action.data.price,
+            context: true,
           };
+          localStorage.setItem("context", JSON.stringify(newState));
+          return newState;
         } else {
           state.cart[index].count += 1;
-
-          return {
+          const newState = {
             ...state,
             totalCount: state.totalCount + 1,
             totalPrice: state.totalPrice + action.data.price,
+            context: true,
           };
+
+          localStorage.setItem("context", JSON.stringify(newState));
+
+          return newState;
         }
 
       case "DECREASE":
@@ -41,28 +60,43 @@ export const CartContextProvider = ({ children }) => {
           state.cart[index].count -= 1;
         }
 
-        return {
+        const newState = {
           ...state,
           totalCount: state.totalCount - 1,
           totalPrice: state.totalPrice - action.data.price,
+          context: true,
         };
+
+        localStorage.setItem("context", JSON.stringify(newState));
+
+        return newState;
 
       case "DELETE":
         state.cart = state.cart.filter((item) => {
           return item.mainId !== action.data.mainId;
         });
-        return {
+
+        const newStateDel = {
           ...state,
           totalCount: state.totalCount - action.data.count,
           totalPrice: state.totalPrice - action.data.price * action.data.count,
+          context: true,
         };
 
+        localStorage.setItem("context", JSON.stringify(newStateDel));
+
+        return newStateDel;
+
       case "CLEAR":
-        return {
+        const newStateClear = {
           cart: [],
           totalCount: 0,
           totalPrice: 0,
+          context: true,
         };
+        localStorage.setItem("context", JSON.stringify(newStateClear));
+
+        return newStateClear;
 
       default:
         return state;
@@ -72,7 +106,16 @@ export const CartContextProvider = ({ children }) => {
     cart: [],
     totalCount: 0,
     totalPrice: 0,
+    context: false,
   });
+
+  useEffect(() => {
+    // @ts-ignore
+    dispatch({
+      type: "GETCONTEXT",
+      data: { cart: [], totalCount: 0, totalPrice: 0, context: false },
+    });
+  }, []);
 
   return (
     <CartContext.Provider value={{ ...state, dispatch }}>
