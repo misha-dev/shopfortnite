@@ -19,12 +19,6 @@
   width: 105px;
 }
 
-@media (max-width: 1000px) {
-  .name {
-    width: 80px;
-  }
-}
-
 .price {
   width: 63px;
   display: flex;
@@ -45,4 +39,10 @@
 
 .cross:hover {
   color: rgba(205, 168, 0, 0.7);
+}
+
+@media (max-width: 1000px) {
+  .name {
+    width: 80px;
+  }
 }

@@ -13,13 +13,6 @@
   cursor: default;
 }
 
-@media (max-width: 1000px) {
-  .modal {
-    font-size: 0.9rem;
-    width: 300px;
-    transform: translateX(-85%);
-  }
-}
 .header {
   border-bottom: 0.3px solid #d99a35;
   text-align: center;
@@ -74,4 +67,12 @@
 
 .activeThanks {
   display: flex;
+}
+
+@media (max-width: 1000px) {
+  .modal {
+    font-size: 0.9rem;
+    width: 300px;
+    transform: translateX(-85%);
+  }
 }
