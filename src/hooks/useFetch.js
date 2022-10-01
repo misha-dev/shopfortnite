@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { API_KEY, API_URL } from "../config/config";
 export const useFetch = () => {
   const [data, setData] = useState();
