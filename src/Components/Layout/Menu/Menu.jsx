@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+
 import { useCartContext } from "../../../hooks/useCartContext";
+
 import { Cart } from "./Cart/Cart";
 import { CartItem } from "./Cart/CartItem/CartItem";
 import cl from "./Menu.module.css";

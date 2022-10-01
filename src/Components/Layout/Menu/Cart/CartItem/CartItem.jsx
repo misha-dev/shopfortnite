@@ -1,6 +1,8 @@
 import { ImCross } from "react-icons/im";
 import { RiCopperCoinLine } from "react-icons/ri";
+
 import { AddRemove } from "../../../../AddRemove/AddRemove";
+
 import cl from "./CartItem.module.css";
 
 export const CartItem = ({ data, dispatch }) => {

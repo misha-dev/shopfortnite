@@ -1,6 +1,8 @@
 import { RiCopperCoinLine } from "react-icons/ri";
+
 import { useCartContext } from "../../hooks/useCartContext";
 import { AddRemove } from "../AddRemove/AddRemove";
+
 import cl from "./Item.module.css";
 
 export const Item = ({ displayName, price, mainId, img }) => {

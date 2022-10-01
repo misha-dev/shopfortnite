@@ -1,8 +1,10 @@
 import { useRef, useState } from "react";
 import { RiCopperCoinLine } from "react-icons/ri";
+
 import { useCartContext } from "../../../../hooks/useCartContext";
 import { useMatchMedia } from "../../../../hooks/useMatchMedia";
 import { useScroll } from "../../../../hooks/useScroll";
+
 import cl from "./Cart.module.css";
 
 export const Cart = ({ children, isVisible }) => {
