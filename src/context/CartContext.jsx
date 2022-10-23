@@ -17,16 +17,13 @@ export const CartContextProvider = ({ children }) => {
     return produce(state, (draft) => {
       if (action.type === "GETCONTEXT") {
         const localState = localStorage.getItem("context");
-        draft.cart = [];
-        draft.totalCount = 0;
-        draft.totalPrice = 0;
         if (localState) {
           const parsedContext = JSON.parse(localState);
-          draft.cart = [...parsedContext.cart];
-          draft.totalCount = parsedContext.totalCount;
-          draft.totalPrice = parsedContext.totalPrice;
-          draft.context = true;
+          return parsedContext;
         } else {
+          draft.cart = [];
+          draft.totalCount = 0;
+          draft.totalPrice = 0;
           draft.context = true;
           localStorage.setItem("context", JSON.stringify(draft));
         }
