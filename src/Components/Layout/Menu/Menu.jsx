@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
@@ -11,18 +11,27 @@ import cl from "./Menu.module.css";
 export const Menu = () => {
   const { cart, totalCount, dispatch } = useCartContext();
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const hideCart = () => {
+      setIsVisible(false);
+    };
+
+    document.addEventListener("click", hideCart);
+    return () => {
+      document.removeEventListener("click", hideCart);
+    };
+  }, []);
   return (
     <div className={cl.menu}>
       <div className={cl.menu__item}>
         <Link to={"/shopfortnite"}>
-          <img
-            src="https://fortniteskins.net/wp-content/themes/fskins/assets/img/img-logo.png"
-            alt=""
-          />
+          <img src="https://fortniteskins.net/wp-content/themes/fskins/assets/img/img-logo.png" alt="" />
         </Link>
       </div>
       <div
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           setIsVisible(!isVisible);
         }}
         className={`${cl.menu__item} ${cl.cart}`}
@@ -35,9 +44,7 @@ export const Menu = () => {
           ) : (
             <div>
               {cart.map((item) => {
-                return (
-                  <CartItem key={item.mainId} data={item} dispatch={dispatch} />
-                );
+                return <CartItem key={item.mainId} data={item} dispatch={dispatch} />;
               })}
             </div>
           )}

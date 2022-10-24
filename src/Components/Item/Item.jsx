@@ -36,7 +36,8 @@ export const Item = ({ displayName, price, mainId, img }) => {
           <AddRemove itemCount={itemCount} dispatch={dispatch} data={data} />
         ) : (
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               dispatch({
                 data,
                 type: "ADD",

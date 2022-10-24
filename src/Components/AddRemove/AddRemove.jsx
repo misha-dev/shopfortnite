@@ -7,14 +7,16 @@ export const AddRemove = ({ itemCount, dispatch, data }) => {
     <div className={cl.wrapper}>
       <AiOutlineMinusCircle
         className={cl.changeCount}
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           dispatch({ data, type: "DECREASE" });
         }}
       />
       <div className={cl.count}>{itemCount}</div>
       <AiOutlinePlusCircle
         className={cl.changeCount}
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           dispatch({ data, type: "ADD" });
         }}
       />
