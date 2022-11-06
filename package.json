@@ -23,6 +23,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "stylelint": "stylelint \"**/*.css\" --fix",
+    "prelint": "npm run stylelint",
     "lint": "eslint . --ext .js,.jsx src",
     "lint:fix": "npm run lint -- --fix"
   },
@@ -39,6 +41,9 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "stylelint": "^14.14.0",
+    "stylelint-config-css-modules": "^4.1.0",
+    "stylelint-config-standard": "^29.0.0"
   }
 }

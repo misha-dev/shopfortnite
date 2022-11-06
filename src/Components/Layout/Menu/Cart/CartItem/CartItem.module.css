@@ -32,13 +32,13 @@
 }
 
 .cross {
-  color: rgba(250, 213, 24, 0.8);
+  color: rgb(250 213 24 / 80%);
   cursor: pointer;
   transition: color 0.2s linear;
 }
 
 .cross:hover {
-  color: rgba(205, 168, 0, 0.7);
+  color: rgb(205 168 0 / 70%);
 }
 
 @media (max-width: 1000px) {

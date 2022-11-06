@@ -1,7 +1,6 @@
 .loaderBody {
   display: flex;
   min-height: calc(100vh - 208.8px);
-
   justify-content: center;
   align-items: center;
 }
@@ -34,6 +33,7 @@
     transform: rotateZ(360deg);
   }
 }
+
 @keyframes smallCircle {
   0% {
     transform: rotateZ(360deg);

@@ -1,74 +1,87 @@
 @import url(https://fonts.googleapis.com/css?family=Maven+Pro:regular,500,600,700,800,900);
 
-/*Reset*/
+/* Reset */
 * {
   padding: 0;
   margin: 0;
   border: 0;
 }
+
 *,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+*::before,
+*::after {
+  box-sizing: border-box;
+  box-sizing: border-box;
   box-sizing: border-box;
 }
+
 :focus,
 :active {
   outline: none;
 }
+
 a:focus,
 a:active {
   outline: none;
   text-decoration: none;
 }
+
 nav,
 footer,
 header,
 aside {
   display: block;
 }
+
 html,
 body {
   height: 100%;
   width: 100%;
-  font-size: 100%;
   line-height: 1;
   font-size: 16px;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
+
 input,
 button,
 textarea {
   font-family: inherit;
 }
+
 input::-ms-clear {
   display: none;
 }
+
 button {
   cursor: pointer;
 }
+
 button::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
+
 a,
 a:visited {
   text-decoration: none;
   color: inherit;
 }
+
 a:hover {
   text-decoration: none;
 }
+
 ul li {
   list-style: none;
 }
+
 img {
   width: 100%;
 }
-/*--------------------*/
+
+/* -------------------- */
 
 * {
   font-family: "Maven Pro", sans-serif;
@@ -81,10 +94,6 @@ img {
 }
 
 /* For cart scroll */
-.App
-  .os-theme-dark
-  .os-scrollbar-vertical
-  > .os-scrollbar-track
-  > .os-scrollbar-handle {
+.App .os-theme-dark .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
   background-color: #060606;
 }

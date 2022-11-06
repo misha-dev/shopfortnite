@@ -6,8 +6,8 @@
   width: 380px;
   left: 50%;
   transform: translateX(-50%);
-  color: rgb(239, 239, 239);
-  background-color: rgba(32, 32, 32, 0.7);
+  color: rgb(239 239 239);
+  background-color: rgb(32 32 32 / 70%);
   font-size: 1.1rem;
   position: absolute;
   cursor: default;
@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   padding: 6px;
-  background-color: rgba(13, 13, 13, 0.8);
+  background-color: rgb(13 13 13 / 80%);
   border-radius: 15px 15px 0 0;
   color: #e6e6e6;
 }
@@ -31,13 +31,14 @@
 
 .modalContent {
   padding: 15px;
+
   /* max-height: 240px; */
 }
 
 .modalFooter {
   padding: 6px;
   display: flex;
-  background-color: rgba(13, 13, 13, 0.8);
+  background-color: rgb(13 13 13 / 80%);
   border-radius: 0 0 15px 15px;
   align-items: center;
   justify-content: space-around;
@@ -49,12 +50,14 @@
   align-items: center;
   justify-content: space-around;
 }
+
 .modalButton {
   font-size: 1rem;
   padding: 5px 10px;
   border-radius: 4px;
   background-color: #d99a35;
 }
+
 .thanks {
   display: none;
   color: #2a2a2a;
