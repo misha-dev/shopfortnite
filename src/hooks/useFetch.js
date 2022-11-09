@@ -6,6 +6,8 @@ export const useFetch = () => {
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    const fetchController = new AbortController();
+    const { signal } = fetchController;
     const fetchData = async () => {
       setIsLoading(true);
       try {
@@ -13,6 +15,7 @@ export const useFetch = () => {
           headers: {
             Authorization: API_KEY,
           },
+          signal,
         });
         const data = await response.json();
         setData(data.shop);
@@ -23,6 +26,9 @@ export const useFetch = () => {
       }
     };
     fetchData();
+    return () => {
+      fetchController.abort();
+    };
   }, []);
 
   return { data, error, isLoading };
