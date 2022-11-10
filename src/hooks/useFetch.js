@@ -13,7 +13,7 @@ export const useFetch = () => {
       try {
         const response = await fetch(API_URL, {
           headers: {
-            Authorization: API_KEY,
+            Authorization: JSON.stringify(API_KEY),
           },
           signal,
         });
