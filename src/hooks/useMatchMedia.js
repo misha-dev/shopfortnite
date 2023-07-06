@@ -1,6 +1,6 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from 'react';
 
-const queries = ["(max-width: 1199px)", "(min-width: 1200px)"];
+const queries = ['(max-width: 1199px)', '(min-width: 1200px)'];
 
 export const useMatchMedia = () => {
   const mediaQueryLists = queries.map((query) => {
@@ -14,10 +14,10 @@ export const useMatchMedia = () => {
     const handler = () => {
       setValues(getValues);
     };
-    mediaQueryLists.forEach((mql) => mql.addEventListener("change", handler));
+    mediaQueryLists.forEach((mql) => mql.addEventListener('change', handler));
     return () => {
       mediaQueryLists.forEach((mql) =>
-        mql.removeEventListener("change", handler)
+        mql.removeEventListener('change', handler)
       );
     };
   }, []);

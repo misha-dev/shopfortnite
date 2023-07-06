@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { API_KEY, API_URL } from "../config/config";
+import { API_KEY, API_URL } from '../data';
+
 export const useFetch = () => {
   const [data, setData] = useState();
   const [error, setError] = useState();
@@ -13,7 +14,7 @@ export const useFetch = () => {
       try {
         const response = await fetch(API_URL, {
           headers: {
-            Authorization: JSON.stringify(API_KEY),
+            Authorization: API_KEY,
           },
           signal,
         });
