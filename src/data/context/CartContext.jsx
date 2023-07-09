@@ -15,7 +15,8 @@ export const CartContextProvider = ({ children }) => {
     };
     const index = findItem(action.data.mainId);
     return produce(state, (draft) => {
-      if (action.type === 'GETCONTEXT') {
+      switch (action.type) {
+      case 'GETCONTEXT':
         const localState = localStorage.getItem('context');
         if (localState) {
           const parsedContext = JSON.parse(localState);
@@ -27,7 +28,8 @@ export const CartContextProvider = ({ children }) => {
           draft.context = true;
           localStorage.setItem('context', JSON.stringify(draft));
         }
-      } else if (action.type === 'ADD') {
+        break;
+      case 'ADD':
         if (index === -1) {
           action.data.count = 1;
           draft.cart.push(action.data);
@@ -41,7 +43,8 @@ export const CartContextProvider = ({ children }) => {
 
           localStorage.setItem('context', JSON.stringify(draft));
         }
-      } else if (action.type === 'DECREASE') {
+        break;
+      case 'DECREASE':
         if (state.cart[index].count === 1) {
           draft.cart = state.cart.filter((item) => {
             return item.mainId !== action.data.mainId;
@@ -54,7 +57,8 @@ export const CartContextProvider = ({ children }) => {
         draft.totalPrice -= action.data.price;
 
         localStorage.setItem('context', JSON.stringify(draft));
-      } else if (action.type === 'DELETE') {
+        break;
+      case 'DELETE':
         draft.cart = state.cart.filter((item) => {
           return item.mainId !== action.data.mainId;
         });
@@ -63,16 +67,19 @@ export const CartContextProvider = ({ children }) => {
         draft.totalPrice -= action.data.price * action.data.count;
 
         localStorage.setItem('context', JSON.stringify(draft));
-      } else if (action.type === 'CLEAR') {
+        break;
+      case 'CLEAR':
         draft.cart = [];
         draft.totalCount = 0;
         draft.totalPrice = 0;
         localStorage.setItem('context', JSON.stringify(draft));
+        break;
+      default:
+        break;
       }
     });
   };
   const [state, dispatch] = useReducer(cartReducer, {
-    // @ts-ignore
     cart: [],
     totalCount: 0,
     totalPrice: 0,
@@ -80,7 +87,6 @@ export const CartContextProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    // @ts-ignore
     dispatch({
       type: 'GETCONTEXT',
       data: { cart: [], totalCount: 0, totalPrice: 0, context: false },
@@ -89,7 +95,7 @@ export const CartContextProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      // @ts-ignore
+
       value={{ ...state, dispatch }}
     >
       {children}
